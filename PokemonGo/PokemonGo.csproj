@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Dapper" />
+    <None Remove="Views\Pokemon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Dapper" Version="2.0.90" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Pokemon\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="pokedex.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

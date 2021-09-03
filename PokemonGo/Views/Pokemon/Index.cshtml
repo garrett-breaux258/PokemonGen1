@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Pokemon>
+
+<h2>Pokedex</h2>
+
+<body style="background-color:blue;color:white"></body>
+<style>    table,th,tr {
+        border: 1px solid white;
+    }
+</style>
+
+<table class="Pokemon">
+    <tr>
+        <th>ID</th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th scope="col">Type</th>
+        <th scope="col">Weaknesses</th>
+    </tr>
+
+    @foreach (var pokemon in Model)
+    {
+<tr>
+
+    <td>@pokemon.id</td>
+    <td> @pokemon.num</td>
+    <td>@pokemon.name</td>
+    <td><img src="@pokemon.img"></td>
+    
+    @if (pokemon.type == null)
+    {
+        <td>"Pokemon has no type"</td>
+    }
+    else
+    {
+
+            @for (int i = 0; i < pokemon.type.Length; i++)
+            {
+                <td headers="Type">@pokemon.type[i]</td>
+            }
+    }
+    @if (pokemon.weaknesses == null)
+    {
+        <td>Pokemon has no weaknesses</td>
+    }
+    else
+    {
+        @for (int i = 0; i < pokemon.weaknesses.Length; i++)
+        {
+            <td headers="Weaknesses">
+               @pokemon.weaknesses[i]
+            </td>
+
+        }
+
+
+    }
+
+
+</tr>
+    }
+
+
+    </table>
+
+
